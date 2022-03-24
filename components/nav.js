@@ -3,6 +3,7 @@ import domtoimage from 'dom-to-image'
 import FileSaver from 'file-saver'
 import Image from 'next/image'
 import logo from '../public/logo.svg'
+import styles from '../styles/nav.module.css'
 
 const Nav = ({ screenshot }) => {
 
@@ -15,7 +16,7 @@ const Nav = ({ screenshot }) => {
     }
 
     return screenshot
-    ?   <div className = 'Nav'>
+    ?   <div className = {styles.Nav}>
             <Image src = {logo} alt = 'logo' height = {30} width = {30}/>
             <button onClick = {handleDownload}><DownloadIcon/>Download picture</button>
         </div>

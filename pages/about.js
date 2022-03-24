@@ -1,11 +1,12 @@
 import Image from 'next/image'
 import logo from '../public/logo.svg'
 import Link from 'next/link'
+import styles from '../styles/about.module.css'
 
 const About = () => {
 
     return(
-        <div className = 'About'>
+        <div className = {styles.About}>
             <Link href = '/'><Image src = {logo} alt = 'logo' height = {30} width = {30}/></Link>
             <h2>What does this do?</h2>
             <p>Toframeit let's you import a picture (screenshot), and add a background.</p>

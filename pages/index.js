@@ -3,6 +3,7 @@ import Nav from '../components/nav'
 import Palette from '../components/palette'
 import Uploader from '../components/uploader'
 import surf from '../assets/surf.png'
+import styles from '../styles/home.module.css'
 
 export default function Home() {
 
@@ -14,7 +15,7 @@ export default function Home() {
     const [width, setWidth] = useState(800)
 
     return(
-        <div className = 'Screen'>
+        <div className = {styles.Screen}>
             <Nav
                 screenshot = {screenshot}
             />
