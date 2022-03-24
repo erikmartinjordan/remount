@@ -1,18 +1,24 @@
-import { FoldIcon, FoldDownIcon, FoldUpIcon } from "@primer/octicons-react"
+import { FoldIcon, FoldDownIcon, FoldUpIcon } from '@primer/octicons-react'
+import Link from 'next/link'
 
-const Palette = ({ background, margin, padding, screenshot, width, setBackground, setMargin, setPadding, setPosition, setWidth }) => {
+const Palette = ({ background, margin, padding, position, screenshot, width, setBackground, setMargin, setPadding, setPosition, setWidth }) => {
 
     const colors = [
         ['#0f2027', '#203a43', '#2c5364'],
         ['#642b73', '#c6426e', '#d1678b'],
+        ['#1b1b1b', '#3e3e3e', '#595959'],
+        ['#380036', '#7b2e8e', '#945db7'],
+        ['#9e768f', '#d6b4d0', '#e6ccd9'],
+        ['#864ba2', '#c39ecb', '#d9c9dd'],
+        ['#c6ffdd', '#fbd786', '#f7797d'],
+        ['#b0f3f1', '#d9f9f9', '#eefdfd'],
         ['#aa4b6b', '#6b6b83', '#3b8d99'],
-        ['#ffA17f', '#00223e', '#002a4d'],
+        ['#0d324d', '#2a5c73', '#4a849b'],
     ]
 
     return screenshot
     ?   <div className = 'Background'>
             {colors.map(color => <div className = {color[0] === background[0] && color[1] === background[1] && color[2] === background[2] ? 'Palette Selected' : 'Palette'} onClick = {() => setBackground(color)} style = {{background: `linear-gradient(to right, ${color[0]}, ${color[1]}, ${color[2]})`}}></div>)}
-            <div className = 'Separator'></div>
             <div className = 'Custom'>
                 <div className = 'Hex'><input placeholder = {'Color 1'} value = {background[0]} onChange = {e => setBackground([e.target.value, background[1], background[2]])}/><div style = {{background: background[0]}}></div></div>
                 <div className = 'Hex'><input placeholder = {'Color 2'} value = {background[1]} onChange = {e => setBackground([background[0], e.target.value, background[2]])}/><div style = {{background: background[1]}}></div></div>
@@ -42,9 +48,15 @@ const Palette = ({ background, margin, padding, screenshot, width, setBackground
             </div>
             <div className = 'Separator'></div>
             <div className = 'Position'>
-                <div onClick = {() => setPosition('center')}><FoldIcon/></div>
-                <div onClick = {() => setPosition('top')}><FoldDownIcon/></div>
-                <div onClick = {() => setPosition('bottom')}><FoldUpIcon/></div>
+                <div className = {position === 'center' ? 'Icon Selected' : 'Icon'} onClick = {() => setPosition('center')}><FoldIcon/></div>
+                <div className = {position === 'top'    ? 'Icon Selected' : 'Icon'} onClick = {() => setPosition('top')}><FoldDownIcon/></div>
+                <div className = {position === 'bottom' ? 'Icon Selected' : 'Icon'} onClick = {() => setPosition('bottom')}><FoldUpIcon/></div>
+            </div>
+            <div className = 'Separator'></div>
+            <div className = 'About'>
+                <Link href = '/about'>About</Link>
+                <Link href = '/privacy'>Privacy</Link>
+                <Link href = 'https://github.com/erikmartinjordan'>Source</Link>
             </div>
         </div>
     :   null

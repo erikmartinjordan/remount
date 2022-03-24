@@ -1,6 +1,8 @@
 import { DownloadIcon } from '@primer/octicons-react'
 import domtoimage from 'dom-to-image'
 import FileSaver from 'file-saver'
+import Image from 'next/image'
+import logo from '../public/logo.svg'
 
 const Nav = ({ screenshot }) => {
 
@@ -14,7 +16,8 @@ const Nav = ({ screenshot }) => {
 
     return screenshot
     ?   <div className = 'Nav'>
-            <button onClick = {handleDownload}><DownloadIcon/>Download</button>
+            <Image src = {logo} alt = 'logo' height = {30} width = {30}/>
+            <button onClick = {handleDownload}><DownloadIcon/>Download picture</button>
         </div>
     :   null
 
