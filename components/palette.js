@@ -2,8 +2,6 @@ import { FoldIcon, FoldDownIcon, FoldUpIcon } from '@primer/octicons-react'
 import styles from '../styles/palette.module.css'
 import Link from 'next/link'
 
-console.log(styles)
-
 const Palette = ({ background, margin, padding, position, screenshot, width, setBackground, setMargin, setPadding, setPosition, setWidth }) => {
 
     const colors = [
@@ -21,7 +19,7 @@ const Palette = ({ background, margin, padding, position, screenshot, width, set
 
     return screenshot
     ?   <div className = {styles.Background}>
-            {colors.map(color => <div className = {color[0] === background[0] && color[1] === background[1] && color[2] === background[2] ? styles.PaletteSelected : styles.Palette} onClick = {() => setBackground(color)} style = {{background: `linear-gradient(to right, ${color[0]}, ${color[1]}, ${color[2]})`}}></div>)}
+            {colors.map((color, i) => <div key = {i} className = {color[0] === background[0] && color[1] === background[1] && color[2] === background[2] ? styles.PaletteSelected : styles.Palette} onClick = {() => setBackground(color)} style = {{background: `linear-gradient(to right, ${color[0]}, ${color[1]}, ${color[2]})`}}></div>)}
             <div className = {styles.Custom}>
                 <div className = {styles.Hex}><input placeholder = {'Color 1'} value = {background[0]} onChange = {e => setBackground([e.target.value, background[1], background[2]])}/><div style = {{background: background[0]}}></div></div>
                 <div className = {styles.Hex}><input placeholder = {'Color 2'} value = {background[1]} onChange = {e => setBackground([background[0], e.target.value, background[2]])}/><div style = {{background: background[1]}}></div></div>
