@@ -20,7 +20,7 @@ const Uploader = ({ background, margin, padding, position, screenshot, width, se
         e.preventDefault()
         e.stopPropagation()
 
-        let file = e.dataTransfer.files[0] || document.querySelector('input[type="file"]').files[0]
+        let file = e.target.files[0] || document.querySelector('input[type="file"]').files[0]
 
         let reader = new FileReader()
 
