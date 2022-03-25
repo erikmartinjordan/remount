@@ -9,7 +9,7 @@ const About = () => {
         <div className = {styles.About}>
             <Link href = '/'><Image src = {logo} alt = 'logo' height = {30} width = {30}/></Link>
             <h2>What does this do?</h2>
-            <p>Toframeit let's you import a picture (screenshot), and add a background.</p>
+            <p>Toframeit let's you import a picture (screenshot), and embed it on a background.</p>
             <h2>How to use it?</h2>
             <ul>
                 <li>Upload a picture (click on the center box or drag an drop)</li>
