@@ -12,7 +12,7 @@ const Colors = ({ background, setBackground }) => {
 
         const handleClick = (e) => {
 
-            if(!document.getElementById('Custom')?.contains(e.target)){
+            if(!document.getElementById('Custom')?.contains(e.target) && displayCustom) {
 
                 if(!JSON.stringify(colors).includes(JSON.stringify(background))){
 
