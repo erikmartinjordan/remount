@@ -30,3 +30,21 @@ a {
     font-family: 'GT America', sans-serif;
     -webkit-font-smoothing: antialiased;
 }
+input[type='range'] {
+    width: 80px;
+    -webkit-appearance: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 6px;
+    height: 8px;
+}
+input[type='range']::-webkit-slider-thumb {
+    width: 10px;
+    -webkit-appearance: none;
+    height: 10px;
+    cursor: pointer;
+    background: white;
+    border-radius: 50%;
+}
+input[type='range']::-webkit-slider-thumb::before {
+    content: 'test';
+}

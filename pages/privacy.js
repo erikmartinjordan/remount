@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Head from 'next/head'
 import logo from '../public/logo.svg'
 import Link from 'next/link'
 import styles from '../styles/privacy.module.css'
@@ -7,7 +7,12 @@ const Privacy = () => {
 
     return(
         <div className = {styles.Privacy}>
-            <Link href = '/'><Image src = {logo} alt = 'logo' height = {30} width = {30}/></Link>
+            <Head>
+                <title>Remount - Privacy</title>
+            </Head>
+            <Link href = '/' passHref>
+                <img src = {logo.src} alt = 'logo' height = {30} width = {30}/>
+            </Link>
             <h2>Do you upload the images to a server?</h2>
             <p>No, they remain in your browser.</p>
             <h2>What does this track?</h2>

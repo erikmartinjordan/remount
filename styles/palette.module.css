@@ -9,6 +9,10 @@
     padding: 10px;
     position: fixed;
 }
+.Colors{
+    align-items: center;
+    display: flex;
+}
 .Input{
     background: transparent;
     border: none;
@@ -51,12 +55,19 @@
     justify-content: space-evenly;
 }
 .Custom{    
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 12px 12px 12px 0px;
+    cursor: pointer;
     display: flex;
     flex-direction: column;
+    left: 10px;
+    padding: 10px;
+    position: absolute;
+    top: -85px;
 }
 .Custom input{
     background: transparent;
-    border: 1px solid rgba(255, 255, 255, 0.4);
+    border: none;
     color: white;
     height: 21px;
 }
@@ -111,4 +122,20 @@
 .About a{
     background: none;
     margin: 3px;
+}
+@media screen and (max-width: 768px){
+    .Background{
+        overflow-x: auto;
+        width: 90%;
+    }
+}
+@media(hover:hover){
+    .Plus:hover{
+        animation: 0.5s swirl_in;
+        cursor: pointer;
+    }
+}
+@keyframes swirl_in{
+    0%    {transform: rotate(0deg);}
+    100%  {transform: rotate(180deg);}
 }

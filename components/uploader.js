@@ -1,19 +1,7 @@
+import { styleDrag, stylePic } from '../utils/colors'
 import styles from '../styles/uploader.module.css'
 
 const Uploader = ({ background, margin, padding, position, screenshot, width, setScreenshot }) => {
-
-    const styleDrag = {
-        background: background.filter(color => color !== '').length > 1 ? `linear-gradient(to right, ${background.filter(color => color !== '').join()})` : background[0],
-        padding: `${padding}px`,
-        width: `${width}px`,
-        paddingBottom: position === 'bottom' ? '0px' : `${padding}px`,
-        paddingTop: position === 'top' ? '0px' : `${padding}px`
-    }
-
-    const stylePic = {
-        marginBottom: position === 'bottom' ? `${margin}px` : '0px',
-        marginTop: position === 'top' ? `${margin}px` : '0px'
-    }
 
     const readImage = (e) => {
 
@@ -38,9 +26,9 @@ const Uploader = ({ background, margin, padding, position, screenshot, width, se
 
     return(
         <div className = {styles.Upload}>
-            <h2>Upload a photo and add a <span className = {styles.Gradient}>background</span>. <br/> Drag a pic or click to replace it.</h2>
-            <div className = {styles.Drag} onDragOver = {e => e.preventDefault()} onDrop = {readImage} onClick = {openDialog} style = {styleDrag} id = 'Screen'>
-                <img src = {screenshot} alt = {'Uploaded picture'} style = {stylePic}/>
+            <h2>Upload a photo and add a <span className = {styles.Gradient}>background</span>. <br/> Drag & drop or click to replace it.</h2>
+            <div className = {styles.Drag} onDragOver = {e => e.preventDefault()} onDrop = {readImage} onClick = {openDialog} style = {styleDrag(background, padding, position, width)} id = 'Screen'>
+                <img src = {screenshot} alt = {'Uploaded picture'} style = {stylePic(margin, position)}/>
             </div>
             <input onChange = {readImage} id = 'upload' type = 'file' title = '' style = {{ opacity: 0 }}/>
         </div> 

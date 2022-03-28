@@ -3,6 +3,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 100%;
 }
 .Upload h2{
     font-size: 32px;
@@ -20,12 +21,19 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    max-width: 100%;
     overflow: hidden;
     padding: 100px;
     text-align: center;
+    transition: 0.2s;
     width: 800px;
 }
 .Drag img{
     height: 100%;
     width: 100%;
+}
+@media screen and (max-width: 768px){
+    .Upload h2{
+        font-size: 16px;
+    }
 }

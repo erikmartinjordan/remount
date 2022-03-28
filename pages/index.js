@@ -1,13 +1,14 @@
 import { useState } from 'react'
+import Head from 'next/head'
 import Nav from '../components/nav'
 import Palette from '../components/palette'
 import Uploader from '../components/uploader'
 import surf from '../assets/surf.png'
 import styles from '../styles/home.module.css'
 
-export default function Home() {
+const Home = () => {
 
-    const [background, setBackground] = useState(['#0f2027', '#203a43', '#2c5364'])
+    const [background, setBackground] = useState(['#642b73', '#c6426e', '#d1678b'])
     const [margin, setMargin] = useState(0)
     const [padding, setPadding] = useState(40)
     const [position, setPosition] = useState('center')
@@ -16,6 +17,10 @@ export default function Home() {
 
     return(
         <div className = {styles.Screen}>
+            <Head>
+                <title>Remount - Upload a photo and customise the background</title>
+                <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            </Head>
             <Nav
                 screenshot = {screenshot}
             />
@@ -48,3 +53,5 @@ export default function Home() {
         </div>
     )
 }
+
+export default Home
