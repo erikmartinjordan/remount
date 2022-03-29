@@ -13,7 +13,7 @@ const Home = () => {
     const [padding, setPadding] = useState(40)
     const [position, setPosition] = useState('center')
     const [screenshot, setScreenshot] = useState(surf.src)
-    const [width, setWidth] = useState(800)
+    const [width, setWidth] = useState(750)
 
     return(
         <div className = {styles.Screen}>
