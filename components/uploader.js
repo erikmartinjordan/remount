@@ -1,4 +1,4 @@
-import { styleDrag, stylePic } from '../utils/colors'
+import { styleDrag, stylePic } from '../utils/styles'
 import styles from '../styles/uploader.module.css'
 
 const Uploader = ({ background, margin, padding, position, screenshot, width, setScreenshot }) => {
@@ -26,7 +26,7 @@ const Uploader = ({ background, margin, padding, position, screenshot, width, se
 
     return(
         <div className = {styles.Upload}>
-            <h2>Upload a photo and add a <span className = {styles.Gradient}>background</span>. <br/> Drag & drop or click to replace it.</h2>
+            <h2>Upload a photo and add a <span className = {styles.Gradient}>background</span>. <br/> Drag & drop or click to replace the pic.</h2>
             <div className = {styles.Drag} onDragOver = {e => e.preventDefault()} onDrop = {readImage} onClick = {openDialog} style = {styleDrag(background, padding, position, width)} id = 'Screen'>
                 <img src = {screenshot} alt = {'Uploaded picture'} style = {stylePic(margin, position)}/>
             </div>

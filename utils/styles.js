@@ -24,10 +24,11 @@ const stylePalette = (background) => ({
  */
 const styleDrag = (background, padding, position, width) => ({
     background: background.filter(color => color !== '').length > 1 ? `linear-gradient(to right, ${background.filter(color => color !== '').join()})` : background.filter(color => color !== ''),
-    padding: `${padding}px`,
     width: `${width}px`,
     paddingBottom: position === 'bottom' ? '0px' : `${padding}px`,
-    paddingTop: position === 'top' ? '0px' : `${padding}px`
+    paddingTop: position === 'top' ? '0px' : `${padding}px`,
+    paddingLeft: `${padding}px`,
+    paddingRight: `${padding}px`
 })
 /**
  * Pic style

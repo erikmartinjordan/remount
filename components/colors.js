@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { palette, stylePalette } from '../utils/colors'
+import { palette, stylePalette } from '../utils/styles'
 import { PlusCircleIcon } from '@primer/octicons-react'
 import styles from '../styles/palette.module.css'
 
