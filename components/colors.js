@@ -17,6 +17,7 @@ const Colors = ({ background, setBackground }) => {
                 if(!JSON.stringify(colors).includes(JSON.stringify(background))){
 
                     setColors([...colors, background])
+                    localStorage.setItem('Color_' + Date.now(), JSON.stringify(background))
 
                 }
 
@@ -25,6 +26,22 @@ const Colors = ({ background, setBackground }) => {
             }
 
         }
+
+        const loadColors = () => {
+
+            const localColors = []
+
+            Object.keys(localStorage).filter(key => key.includes('Color_')).forEach(key => {
+
+                localColors.push(JSON.parse(localStorage.getItem(key)))
+
+            })
+
+            setColors([...colors, ...localColors])
+
+        }
+
+        loadColors()
 
         window.addEventListener('click', handleClick)
 
