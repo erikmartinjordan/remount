@@ -10,44 +10,35 @@ const Colors = ({ background, setBackground }) => {
 
     useEffect(() => {
 
-        const handleClick = (e) => {
+        const localColors = []
 
-            if(!document.getElementById('Custom')?.contains(e.target) && displayCustom) {
+        Object.keys(localStorage).filter(key => key.includes('Color_')).forEach(key => {
 
-                if(!JSON.stringify(colors).includes(JSON.stringify(background))){
+            localColors.push(JSON.parse(localStorage.getItem(key)))
 
-                    setColors([...colors, background])
-                    localStorage.setItem('Color_' + Date.now(), JSON.stringify(background))
+        })
 
-                }
+        setColors([...colors, ...localColors])
 
-                setDisplayCustom(!displayCustom)
+    }, [])
 
-            }
 
-        }
+     const close = (e) => {
 
-        const loadColors = () => {
+        if(!JSON.stringify(colors).includes(JSON.stringify(background))){
 
-            const localColors = []
-
-            Object.keys(localStorage).filter(key => key.includes('Color_')).forEach(key => {
-
-                localColors.push(JSON.parse(localStorage.getItem(key)))
-
-            })
-
-            setColors([...colors, ...localColors])
+            localStorage.setItem('Color_' + JSON.stringify(background), JSON.stringify(background))
+            setColors([...colors, background])
 
         }
 
-        loadColors()
+        if (!e.currentTarget.contains(e.relatedTarget)) {
 
-        window.addEventListener('click', handleClick)
+            setDisplayCustom(false)
 
-        return () => window.removeEventListener('click', handleClick)
+        }
 
-    }, [background, displayCustom])
+    }
 
     return(
         <div className = {styles.Colors}>
@@ -55,11 +46,11 @@ const Colors = ({ background, setBackground }) => {
             <div onClick = {() => setDisplayCustom(true)} style = {{ position: 'relative', margin: '2px'}}>
                 <PlusCircleIcon size = {20} className = {styles.Plus}/>
                 { displayCustom
-                ? <div className = {styles.Custom} id = 'Custom'>
-                    <div className = {styles.Hex}><input placeholder = {'Color 1'} value = {background[0]} onChange = {e => setBackground([e.target.value, background[1], background[2]])}/><div style = {{background: background[0]}}></div></div>
+                ? <div className = {styles.Custom} id = 'Custom' onBlur = {close}>
+                    <div className = {styles.Hex}><input placeholder = {'Color 1'} value = {background[0]} onChange = {e => setBackground([e.target.value, background[1], background[2]])} autoFocus/><div style = {{background: background[0]}}></div></div>
                     <div className = {styles.Hex}><input placeholder = {'Color 2'} value = {background[1]} onChange = {e => setBackground([background[0], e.target.value, background[2]])}/><div style = {{background: background[1]}}></div></div>
                     <div className = {styles.Hex}><input placeholder = {'Color 3'} value = {background[2]} onChange = {e => setBackground([background[0], background[1], e.target.value])}/><div style = {{background: background[2]}}></div></div>
-                </div>
+                  </div>
                 : null}
             </div>
         </div>
