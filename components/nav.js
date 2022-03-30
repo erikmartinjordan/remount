@@ -28,7 +28,7 @@ const Nav = ({ screenshot }) => {
 
         let blob = await domtoimage.toBlob(document.getElementById('Screen'))
         
-        window.saveAs(blob, 'capture.png')
+        FileSaver.saveAs(blob, 'capture.png')
 
         runTransaction(ref(db, 'downloads/' + moment().format('YYYY-MM')), value => value + 1)
 
