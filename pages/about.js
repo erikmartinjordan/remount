@@ -14,11 +14,11 @@ const About = () => {
                 <img src = {logo.src} alt = 'logo' height = {30} width = {30}/>
             </Link>
             <h2>What does this do?</h2>
-            <p>Remount let&apos;s you import a picture (screenshot), and embed it on a background. You can customise the background colors (which are saved in your local storage).</p>
+            <p>Import a picture (screenshot), and embed it on a background. You can customise the background colours (saved in your local storage)..</p>
             <h2>How to use it?</h2>
             <ul>
-                <li>Upload a picture (click on the center box or drag an drop)</li>
-                <li>Select a background or customise with HEX colors</li>
+                <li>Upload a picture (click on the centre box or drag and drop)</li>
+                <li>Select a background or customise it with HEX colours</li>
                 <li>Adjust the picture&apos;s position</li>
                 <li>Click on the download button</li>
             </ul>

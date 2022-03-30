@@ -2,12 +2,12 @@
 
 ## What does this do?
 
-Remount let's you import a picture (screenshot), and embed it on a background. You can customise the background colors (which are saved in your local storage).</p>
+Import a picture (screenshot), and embed it on a background. You can customise the background colours (saved in your local storage).
 
 ## How to use it?
 
-* Upload a picture (click on the center box or drag an drop)
-* Select a background or customise with HEX colors
+* Upload a picture (click on the centre box or drag and drop)
+* Select a background or customise it with HEX colours
 * Adjust the picture's position
 * Click on the download button
 
