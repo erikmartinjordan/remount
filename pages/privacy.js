@@ -21,8 +21,10 @@ const Privacy = () => {
             <p>To know if people are using the app.</p>
             <h2>Where is the data stored?</h2>
             <p>Firebase.</p>
-            <h2>Why privacy pages are so boring?</h2>
-            <p>😅</p>
+            <h2>Where are the custom colors stored?</h2>
+            <p>In your localStorage variable.</p>
+            <h2>How to delete my colors?</h2>
+            <p>Open the Inspector and run localStorage.clear().</p>
         </div>
     )
 
