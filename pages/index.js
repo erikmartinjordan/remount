@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Head from 'next/head'
 import Nav from '../components/nav'
 import Palette from '../components/palette'
@@ -13,7 +13,13 @@ const Home = () => {
     const [padding, setPadding] = useState(40)
     const [position, setPosition] = useState('center')
     const [screenshot, setScreenshot] = useState(surf.src)
-    const [width, setWidth] = useState(750)
+    const [width, setWidth] = useState(0)
+
+    useEffect(() => {
+
+        setWidth(Math.min(700, window.innerWidth))
+
+    }, [])
 
     return(
         <div className = {styles.Screen}>

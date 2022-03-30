@@ -1,6 +1,15 @@
+import { useEffect, useState } from 'react'
 import styles from '../styles/palette.module.css'
 
 const Settings = ({ margin, padding, width, setMargin, setPadding, setWidth }) => {
+
+    const [maxWidth, setMaxWidth] = useState(0)
+
+    useEffect(() => {
+
+        setMaxWidth(window.innerWidth)
+
+    }, [])
 
     return(
         <div className = {styles.Settings}>
@@ -8,7 +17,7 @@ const Settings = ({ margin, padding, width, setMargin, setPadding, setWidth }) =
                 <tbody>
                     <tr>
                         <td><span>Width</span></td>
-                        <td><input type = 'range' min = '1' max = '1500' value = {width} className = 'slider' id = 'width' onChange = {e => setWidth(e.target.value)}/></td>
+                        <td><input type = 'range' min = '1' max = {maxWidth} value = {width} className = 'slider' id = 'width' onChange = {e => setWidth(e.target.value)}/></td>
                         <td><span>{width}px</span></td>
                     </tr>
                     <tr>
