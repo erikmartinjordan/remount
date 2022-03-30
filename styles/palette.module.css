@@ -125,8 +125,12 @@
 }
 @media screen and (max-width: 768px){
     .Background{
+        flex-direction: column;
         overflow-x: auto;
         width: 90%;
+    }
+    .Plus{
+        display: none!important;
     }
 }
 @media(hover:hover){
